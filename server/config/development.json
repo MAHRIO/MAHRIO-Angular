@@ -8,5 +8,5 @@
       "PATH": "ng"
     }
   ],
-  "WEB_DOMAIN": "http://127.0.0.1:8081/",
+  "WEB_DOMAIN": "http://127.0.0.1:8081/"
 }
