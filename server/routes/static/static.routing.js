@@ -1,4 +1,5 @@
 var fs = require('fs');
+var ngHapiEngine = require('@nguniversal/hapi-engine');
 
 module.exports = function(server, root, publicPath) {
   server.route({
@@ -13,15 +14,7 @@ module.exports = function(server, root, publicPath) {
   server.route({
     path: '/{any}',
     method: 'GET',
-    handler: function(req, h) {
-      console.log("static.routing.GET: ")
-      if( fs.existsSync(root+'/public/'+publicPath + '/' + process.env.NODE_ENV + '/'+req.params.any) ) {
-        return h.file(publicPath + '/' + process.env.NODE_ENV + '/'+req.params.any);
-      } else {
-        console.log("static.routing.GET: requested " + publicPath + '/' + process.env.NODE_ENV + '/index.html')
-        return h.file(publicPath + '/' + process.env.NODE_ENV + '/index.html');
-      }
-    }
+    handler: (req) => ngHapiEngine({req, bootstrap: ServerAppModule})
   });
   server.route({
     path: '/{any*}',

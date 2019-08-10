@@ -1,5 +1,6 @@
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 var config = require('./config/'+process.env.NODE_ENV+'.json');
+
 for( var key in config ) {
   if( process.env[key] ) {
     config[key] = process.env[key] || config[key];
