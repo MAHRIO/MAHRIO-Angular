@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/MAHRIO-Angular7",
+            "outputPath": "server/public/ng/development",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -29,6 +29,7 @@
           },
           "configurations": {
             "production": {
+              "outputPath": "server/public/ng/production",
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
